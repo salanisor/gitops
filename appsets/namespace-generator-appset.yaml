@@ -1,0 +1,34 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: namespace-manager
+  namespace: openshift-gitops
+spec:
+  goTemplate: true
+  generators:
+  - matrix:
+      generators:
+      - git:
+          repoURL: git@github.com:salanis/gitops.git
+          revision: nonprd
+          files:
+          - path: tenants/my_example_cluster/namespace/list-elementsYaml-namespace.yaml
+      - list:
+          elements: []
+          elementsYaml: "{{ .key.components | toJson }}"
+  template:
+    metadata:
+      name: "ns-{{.namespace}}"
+    spec:
+      project: infra
+      source:
+        repoURL: git@github.com:salanisor/gitops.git
+        targetRevision: nonprd
+        path: "tenants/{{.cluster}}/{{.namespace}}/namespace/"
+      syncPolicy:
+        automated:
+          prune: false
+          selfHeal: true    
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: openshift-gitops

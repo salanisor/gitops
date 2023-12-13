@@ -1,7 +1,7 @@
 <h2 align="center">GitOps Directory Structure</h2>
 
 <p align="center">
-  <img src="https://github.com/salanisor/gitops/blob/master/yaml/gitops-aep.png" height="1000"/>
+  <img src="https://github.com/salanisor/gitops/blob/master/yaml/gitops.png" height="1000"/>
 </p
 
 * How does the tenants directory structure look like in actuality?

@@ -1,0 +1,14 @@
+key:
+  components:
+    - namespace: openshift-gitops
+      cluster: us-west
+    - namespace: corp-dev-abc-gitops-nonprod
+      cluster: us-west
+    - namespace: corp-dev-def-gitops-nonprod
+      cluster: us-west
+    - namespace: corp-qa-abc-gitops-nonprod
+      cluster: us-west
+    - namespace: corp-qa-def-gitops-nonprod
+      cluster: us-west
+    - namespace: corp-qa-ghi-gitops-nonprod
+      cluster: us-west
