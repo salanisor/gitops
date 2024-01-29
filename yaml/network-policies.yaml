@@ -55,7 +55,8 @@ metadata:
     - to:
       - namespaceSelector:
           matchLabels:
-             name: kube-system
+             #name: kube-system # k8s configuration only
+             name: openshift-dns
       ports:
       - protocol: UDP
         port: 53
